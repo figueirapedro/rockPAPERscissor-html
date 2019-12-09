@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <title>Rock Paper Scissors Game</title>
+    </head>
+
+    <body style="background-image: url(bg_image.jpeg); background-repeat: no-repeat; background-size: cover;">
+        
+        <div align=center style="padding-bottom: 3%;">
+            <h1><b>ROCK & PAPER & SCISSOR GAME</b></h1>
+        </div>
+
+        <div style="display: flex; justify-content: space-between">
+            <div align=left style="font-size: larger; justify-content: space-between;">
+                <span>Your Move:</span>
+                <div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <input type="button" value="Rock" id="btnRock" />
+                            <br>
+                            <input type="button" value="Paper" id="btnPaper" />
+                            <br>
+                            <input type="button" value="Scissor" id="btnScissor" />
+                        </div>
+
+                        <div>
+                            <h3 id="playerRes"></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div align = center>
+            <h1 id="resFinal"></h1>
+        </div>
+
+            <div align=right style="font-size: larger;">
+                <span>Computer's Move:</span>
+                <div style="display: flex; justify-content: space-between;">   
+                    <div>
+                        <h3 id="compRes"></h3>
+                    </div>
+
+                    <div>
+                        <input type="button" value="Rock" disabled />
+                        <br>
+                        <input type="button" value="Paper" disabled  />
+                        <br>
+                        <input type="button" value="Scissor" disabled />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function disableBtn(){
+                btnRock.disabled = true;
+                btnScissor.disabled = true;
+                btnPaper.disabled = true;
+            }
+
+            var scissorActive = false;
+            var rockActive = false;
+            var paperActive = false;
+            
+            document.getElementById("btnRock").addEventListener("click", function Rock(){
+                disableBtn()
+                
+                document.getElementById("playerRes").innerHTML = "Rock"
+
+                let compPlay = Math.floor(Math.random() * 3)
+
+                if (compPlay == 0) {
+                document.getElementById("compRes").innerHTML = "Rock"
+                    document.getElementById("resFinal").innerHTML = "DRAW".fontcolor("cyan")
+                }
+
+                if (compPlay == 1) {
+                    document.getElementById("compRes").innerHTML = "Paper"
+                    document.getElementById("resFinal").innerHTML = "YOU LOSE!".fontcolor("red")
+                }
+
+                if (compPlay == 2) {
+                    document.getElementById("compRes").innerHTML = "Scissor"
+                    document.getElementById("resFinal").innerHTML = "YOU WIN!".fontcolor("green")
+                }
+
+            })
+
+            document.getElementById("btnPaper").addEventListener("click", function Paper(){
+                disableBtn();
+
+                document.getElementById("playerRes").innerHTML = "Paper"
+
+                let compPlay = Math.floor(Math.random() * 3)
+
+                if (compPlay == 0) {
+                    document.getElementById("compRes").innerHTML = "Rock"
+                        document.getElementById("resFinal").innerHTML = "YOU WIN!".fontcolor("green")
+                    }
+
+                if (compPlay == 1) {
+                    document.getElementById("compRes").innerHTML = "Paper"
+                    document.getElementById("resFinal").innerHTML = "DRAW".fontcolor("cyan")
+                }
+
+                if (compPlay == 2) {
+                    document.getElementById("compRes").innerHTML = "Scissor"
+                    document.getElementById("resFinal").innerHTML = "YOU LOSE!".fontcolor("red")
+                }
+
+            })
+            
+            document.getElementById("btnScissor").addEventListener("click", function Scissor(){
+                disableBtn();
+
+                document.getElementById("playerRes").innerHTML = "Scissor"
+
+                let compPlay = Math.floor(Math.random() * 3)
+
+                if (compPlay == 0) {
+                    document.getElementById("compRes").innerHTML = "Rock"
+                        document.getElementById("resFinal").innerHTML = "YOU LOSE!".fontcolor("red")
+                    }
+
+                if (compPlay == 1) {
+                    document.getElementById("compRes").innerHTML = "Paper"
+                    document.getElementById("resFinal").innerHTML = "YOU WIN!".fontcolor("green")
+                }
+
+                if (compPlay == 2) {
+                    document.getElementById("compRes").innerHTML = "Scissor"
+                    document.getElementById("resFinal").innerHTML = "DRAW".fontcolor("cyan")
+                }
+
+            })
+
+            /*
+            0 = Rock
+            1 = Paper
+            2 = Scissor
+            */            
+        </script>
+    </body>
+</html>
